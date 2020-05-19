@@ -1,0 +1,6 @@
+.popup__cont{
+    width: 471px;
+    height: 371px;
+    display: flex;
+    flex-direction: column;
+}

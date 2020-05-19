@@ -1,0 +1,20 @@
+@import url(./__cont/popup__cont.css);
+@import url(./__container/popup__container.css);
+@import url(./__title/popup__title.css);
+@import url(./__author/popup__author.css);
+@import url(./__profession/popup__profession.css);
+
+.popup{
+    width: 100%;
+    min-height: 100%;
+    color: white;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    margin: 0;
+}

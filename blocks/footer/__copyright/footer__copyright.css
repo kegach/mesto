@@ -1,9 +1,9 @@
 .footer__copyright{
-    text-align: right;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 1;
+    font-size: 18px;
+    line-height: 22px;
+    color: #545454;
 }
 
 @media (min-width : 320px) and (max-width : 767px) {

@@ -1,0 +1,20 @@
+.savebutton{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    width: 358px;
+    height: 50.15px;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #000000;
+    border-radius: 2px;
+    border: black 0px;
+    margin: 0 auto;
+    margin-top: 48px;
+}
+
+.savebutton:hover{
+    background: rgba(0, 0, 0, 0.8);
+}

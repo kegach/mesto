@@ -1,0 +1,9 @@
+.closebutton{
+    height: 47px;
+    width: 47px;
+    align-self: flex-end;
+}
+
+.closebutton:hover{
+    opacity: 0.6;
+}

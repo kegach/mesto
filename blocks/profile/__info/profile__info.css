@@ -1,0 +1,8 @@
+.profile__info{
+    margin-right: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+    position: relative;
+}
