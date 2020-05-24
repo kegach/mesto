@@ -1,7 +1,7 @@
 
 .elements{
     width: 68.90625%;
-    margin: 0 auto;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
     grid-template-rows: repeat(3, minmax(min-content, max-content));
@@ -13,9 +13,10 @@
 @media (min-width : 320px) and (max-width : 767px) {
     .elements{
         grid-template-columns: minmax(min-content, max-content);
-        grid-template-rows: repeat(12, minmax(min-content, max-content));
+        grid-template-rows: repeat(6, minmax(min-content, max-content));
         grid-gap: 12px;
-        width: 90%;
-        padding-top: 64px;
+        width: 88.125%;
+        padding-bottom: 48px;
+        align-items: center;
     }
 }

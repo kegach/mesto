@@ -5,3 +5,9 @@
     font-size: 42px;
     line-height: 56px;
 }
+
+@media (min-width : 320px) and (max-width : 767px) {
+    .author{
+        font-size: 27px;
+    }
+}

@@ -12,6 +12,7 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/closebutton/closebutton.css);
 @import url(../blocks/savebutton/savebutton.css);
 @import url(../blocks/linepopup/linepopup.css);

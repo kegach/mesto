@@ -12,3 +12,11 @@
     opacity: 0.6;
     border: 2px solid rgba(255, 255, 255, 0.6);
 }
+
+
+@media (min-width : 320px) and (max-width : 767px) {
+    .addbutton{
+        margin-top: 36px;
+        width: 100%;
+    }
+}

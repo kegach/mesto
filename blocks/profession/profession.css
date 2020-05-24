@@ -5,3 +5,10 @@
     font-size: 18px;
     line-height: 22px;
 }
+
+@media (min-width : 320px) and (max-width : 767px) {
+    .profession{
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
