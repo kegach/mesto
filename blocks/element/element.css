@@ -1,10 +1,24 @@
 @import url(./__image/element__image.css);
-@import url(./__title/elemet__title.css);
+@import url(./__title/element__title.css);
+@import url(./__titletext/element__titletext.css);
 @import url(./__group/element__group.css);
 
 .element{
-    width: 100%;
-    min-height: 361px;
+    width: 282px;
+    max-height: 361px;
     background: #FFFFFF;
     border-radius: 10px;
+}
+
+
+@media (min-width : 768px) and (max-width : 1280px) {
+    .element{
+    max-height: 361px;
+    }
+}
+
+@media (min-width : 220px) and (max-width : 767px) {
+    .element{
+       margin: auto;
+    }
 }

@@ -1,4 +1,6 @@
 .element__group{
     background-color: white;
     border: white;
+    height: 50%;
+    margin: auto 0; 
 }

@@ -3,6 +3,10 @@
 @import url(./__title/popup__title.css);
 @import url(./__author/popup__author.css);
 @import url(./__profession/popup__profession.css);
+@import url(./__line/popup__line.css);
+@import url(./__savebutton/popup__savebutton.css);
+@import url(./__closebutton/popup__closebutton.css);
+
 
 .popup{
     width: 100%;

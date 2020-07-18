@@ -1,5 +1,9 @@
 @import url(./__avatar/profile__avatar.css);
 @import url(./__info/profile__info.css);
+@import url(./__author/profile__author.css);
+@import url(./__profession/profile__profession.css);
+@import url(./__addbutton/profile__addbutton.css);
+@import url(./__editbutton/profile__editbutton.css);
 
 .profile {
     width: 68.90625%;
@@ -10,6 +14,12 @@
     justify-content: space-between;
 }
 
+@media (min-width : 768px) and (max-width : 1280px) {
+    .profile{
+        width: 882px;
+        margin: auto 15%;
+    }
+}
 
 @media (min-width : 320px) and (max-width : 767px) {
     .profile{

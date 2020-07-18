@@ -1,4 +1,4 @@
-.author{
+.profile__author{
     margin: 0;
     font-style: normal;
     font-weight: 500;
@@ -7,7 +7,7 @@
 }
 
 @media (min-width : 320px) and (max-width : 767px) {
-    .author{
+    .profile__author{
         font-size: 27px;
     }
 }

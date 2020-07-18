@@ -1,9 +1,9 @@
-.closebutton{
+.popup__closebutton{
     height: 47px;
     width: 47px;
     align-self: flex-end;
 }
 
-.closebutton:hover{
+.popup__closebutton:hover{
     opacity: 0.6;
 }
