@@ -110,53 +110,14 @@
             </div>
             <div class="popup__container">
                 <h3 class="popup__title">Редактрировать профиль</h3>
-                <input type="text" name="author" class="popup__author" value="Жак-Ив Кусто" contenteditable="true">
+                <input type="text" id="author" class="popup__author" value="Жак-Ив Кусто">
                 <hr class="popup__line">
-                <input type="text" name="profession" class="popup__profession" value="Исследователь океана" contenteditable="true">
+                <input type="text" id="profession" class="popup__profession" value="Исследователь океана">
                 <hr class="popup__line">
                 <button class="popup__savebutton">Сохранить</button>
             </div>
         </div>
     </div>
-
-
-    <script>
-        let popup = document.querySelector('.popup');
-        let editbutton = document.querySelector('.profile__editbutton');
-        let closebutton = document.querySelector('.popup__closebutton');
-
-        function openClosePopup() {
-            popup.classList.toggle('popup_opened');
-            console.log('Мы открыли/закрыли окно'); 
-        } 
-        editbutton.addEventListener('click', openClosePopup);
-        closebutton.addEventListener('click', openClosePopup);
-
-
-        let saveButton = document.querySelector('.popup__savebutton');
-        let formElement = document.querySelector('.popup__container');
-        let author = document.querySelector('.profile__author');
-        let profession = document.querySelector('.profile__profession');
-       
-        //Не понимаю почему не менятся value у инпутов popup__author и popup__profession. Появляется какой-то div с атрибутом   
-        //contenteditable, в котором происходят изменения. Подскажите пожайлуста, в чем проблема?
-
-        function formSubmitHandler (evt) {
-            evt.preventDefault(); 
-            let nameInput = document.querySelector('.popup__author');
-            let jobInput = document.querySelector('.popup__profession');
-            nameInput.value = nameInput.getAttribute('value');
-            jobInput.value = jobInput.getAttribute('value');
-            author.textContent = nameInput.value;
-            profession.textContent = jobInput.value;
-            console.log(nameInput.getAttribute('value'));
-            console.log(author.textContent);
-            console.log(author);
-        }
-        formElement.addEventListener('submit', formSubmitHandler);
-        saveButton.addEventListener('click', formSubmitHandler);
-        saveButton.addEventListener('click', openClosePopup);
-
-    </script>
+    <script src="script.js"></script>
 </body> 
 </html>
