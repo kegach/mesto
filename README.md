@@ -5,4 +5,3 @@
 
 **Ссылка на проект**
 (https://kegach.github.io/mesto)
-
