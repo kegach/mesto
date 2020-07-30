@@ -6,15 +6,16 @@
     line-height: 56px;
 }
 
-@media (min-width : 768px) and (max-width : 1280px) {
+@media (min-width : 870px) and (max-width : 1280px) {
     .profile__author{
+        width: 400px;
         font-size: 40px;
         line-height: 54px;   
         margin-left: 5%;
     }
 }
 
-@media (min-width : 320px) and (max-width : 767px) {
+@media (min-width : 320px) and (max-width : 869px) {
     .profile__author{
         font-size: 27px;
     }

@@ -15,15 +15,15 @@
 }
 
 
-@media (min-width : 768px) and (max-width : 1280px) {
+@media (min-width : 870px) and (max-width : 1280px) {
     .profile__editbutton{
         top: 38px;
-        left: 212px;
+        
     }
 }
 
 
-@media (min-width : 320px) and (max-width : 767px) {
+@media (min-width : 320px) and (max-width : 869px) {
     .profile__editbutton{
         top: 19px;
         height: 22px;

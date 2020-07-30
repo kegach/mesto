@@ -6,6 +6,7 @@
     box-sizing: border-box;
     border-radius: 2px;
     align-self: center;
+    margin-left: 20%;
 }
 
 .profile__addbutton:hover{
@@ -13,10 +14,16 @@
     border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
+@media (min-width : 870px) and (max-width : 1280px) {
+    .profile__addbutton{
+        margin: auto;
+    }
+}
 
-@media (min-width : 320px) and (max-width : 767px) {
+@media (min-width : 320px) and (max-width : 869px) {
     .profile__addbutton{
         margin-top: 36px;
         width: 100%;
+        margin-left: 0;
     }
 }

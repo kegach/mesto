@@ -8,7 +8,7 @@
     grid-gap: 18px 20px; 
     padding-bottom: 66px;
 } 
-@media (min-width : 768px) and (max-width : 1280px) {
+@media (min-width : 870px) and (max-width : 1279px) {
     .elements{
         width: 68.90625%;
         margin: auto;
@@ -17,7 +17,7 @@
     }
 }
 
-@media (min-width : 220px) and (max-width : 767px) {
+@media (min-width : 220px) and (max-width : 869px) {
     .elements{
         grid-template-columns: 1fr;
         grid-template-rows:repeat(6, 1fr);
