@@ -12,13 +12,12 @@
 .profile__editbutton:hover{
     opacity: 0.6;
     border: 1px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
 }
-
 
 @media (min-width : 870px) and (max-width : 1280px) {
     .profile__editbutton{
         top: 38px;
-        
     }
 }
 

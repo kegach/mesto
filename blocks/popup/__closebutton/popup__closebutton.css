@@ -1,9 +1,10 @@
 .popup__closebutton{
-    height: 47px;
-    width: 47px;
+    height: 50px;
+    width: 50px;
     align-self: flex-end;
 }
 
 .popup__closebutton:hover{
     opacity: 0.6;
+    cursor: pointer;
 }
