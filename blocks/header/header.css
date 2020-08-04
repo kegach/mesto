@@ -1,15 +1,14 @@
 @import url(./__logo/header__logo.css);
-@import url(./__line/header__line.css);
 
 .header {
     width: 68.90625%;
     min-height: 74px;
     margin: auto;
     padding-top: 45px;
-    padding-bottom: 36.25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-bottom: 1px solid #545454;
 }
 
 @media (min-width : 870px) and (max-width : 1280px) {
@@ -20,10 +19,7 @@
 }
 @media (min-width : 320px) and (max-width : 869px) {
     .header{
-        width: 83.125%;
-        padding-bottom: 38px;
-        padding-top: 28px;
-        margin-left: 27px;
-        margin: auto;
+        width: 100%;
+        padding-top: 0;
     }
 }

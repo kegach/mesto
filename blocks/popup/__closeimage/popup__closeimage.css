@@ -1,0 +1,8 @@
+.popup__closeimage{
+    background-image: url("../../../images/closeimage.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 45.7px;
+    height: 45.7px;
+    margin: auto;
+}

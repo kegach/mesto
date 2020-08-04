@@ -1,0 +1,8 @@
+.profile__addimage{
+    background-image: url("../../../images/addimage.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    margin: auto;
+}

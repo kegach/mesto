@@ -1,0 +1,8 @@
+.profile__editimage{
+    background-image: url("../../../images/editimage.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+}

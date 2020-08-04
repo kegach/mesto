@@ -6,6 +6,7 @@
 @import url(./__line/popup__line.css);
 @import url(./__savebutton/popup__savebutton.css);
 @import url(./__closebutton/popup__closebutton.css);
+@import url(./__closeimage/popup__closeimage.css);
 
 
 .popup{

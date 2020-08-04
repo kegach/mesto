@@ -3,11 +3,14 @@
 @import url(./__author/profile__author.css);
 @import url(./__profession/profile__profession.css);
 @import url(./__addbutton/profile__addbutton.css);
+@import url(./__addimage/profile__addimage.css);
 @import url(./__editbutton/profile__editbutton.css);
+@import url(./__editimage/profile__editimage.css);
 
 .profile {
     width: 68.90625%;
     margin: auto;
+    padding-top: 36.25px;
     padding-bottom: 51px;
     display: flex;
     flex-direction: row;
