@@ -1,4 +1,4 @@
-.popup__profession{
+.popup__secondline{
     width: 83.255%;
     height: 27.26px;
     border: 0px;
@@ -11,4 +11,13 @@
     margin: 0;
     margin-left: 36px;
     margin-top: 30px;
+}
+
+@media (min-width : 320px) and (max-width : 869px) {
+    .popup__secondline{
+        font-size: 12px;
+        line-height: 15px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
 }

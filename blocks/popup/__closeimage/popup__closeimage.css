@@ -6,3 +6,10 @@
     height: 45.7px;
     margin: auto;
 }
+
+@media (min-width : 320px) and (max-width : 869px) {
+    .popup__closeimage{
+        width: 36.7px;
+        height: 36.7px;
+    }
+}

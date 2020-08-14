@@ -1,0 +1,6 @@
+.popup__container3{
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}

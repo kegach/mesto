@@ -3,6 +3,7 @@
     border: white;
     height: 50%;
     margin: auto 0; 
+    padding: 0;
 }
 
 .element__group:hover{

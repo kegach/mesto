@@ -28,60 +28,8 @@
             </section>
 
             <section class="elements">
-                <div class="element">
-                    <img src="./images/kirill-pershin-1556355-unsplash.png" class="element__image" alt="Ваша первая картинка">
-                    <div class="element__title">
-                        <h3 class="element__titletext">Кавказcкий горный хребет</h3>
-                        <button type="button" class="element__group">
-                            <div class="element__like"></div>
-                        </button>
-                    </div> 
-                </div>
-                <div class="element">
-                    <img src="./images/kirill-pershin-1088404-unsplash.png" class="element__image" alt="Ваша вторая картинка">
-                    <div class="element__title">
-                        <h3 class="element__titletext">Домбай</h3>
-                        <button type="button" class="element__group">
-                            <div class="element__like"></div>
-                        </button>
-                    </div> 
-                </div>
-                <div class="element">
-                    <img src="./images/kirill-pershin-1404681-unsplash.png" class="element__image" alt="Ваша третья картинка">
-                    <div class="element__title">
-                        <h3 class="element__titletext">Байкальская равнина</h3>
-                        <button type="button" class="element__group">
-                            <div class="element__like"></div>
-                        </button>
-                    </div>
-                </div>  
-                <div class="element">
-                    <img src="./images/kirill-pershin-1556355-unsplash.png" class="element__image" alt="Ваша четвертая картинка">
-                    <div class="element__title">
-                        <h3 class="element__titletext">Карачаевск</h3>
-                        <button type="button" class="element__group">
-                            <div class="element__like"></div>
-                        </button>
-                    </div> 
-                </div>            
-                <div class="element">
-                    <img src="./images/kirill-pershin-1088404-unsplash.png" class="element__image" alt="Ваша пятая картинка">
-                    <div class="element__title">
-                        <h3 class="element__titletext">Домбайская долина</h3>
-                        <button type="button" class="element__group">
-                            <div class="element__like"></div>
-                        </button>
-                    </div> 
-                </div>
-                <div class="element">
-                    <img src="./images/kirill-pershin-1404681-unsplash.png" class="element__image" alt="Ваша шестая картинка">
-                    <div class="element__title">
-                        <h3 class="element__titletext">Байкал</h3>
-                        <button type="button" class="element__group">
-                            <div class="element__like"></div>
-                        </button>
-                    </div> 
-                </div> 
+            
+            
             </section>       
         </main>
 
@@ -89,21 +37,68 @@
             <h5 class="footer__copyright">&copy; 2020 Mesto Russia</h5>
         </footer>
     </div> 
-        <div class="popup">
+        <div class="popup" id="modal1">
             <div class="popup__cont"> 
                 <button type="button" class="popup__closebutton">
                     <div class="popup__closeimage"></div>
                 </button>
                 <div class="popup__container">
                     <h3 class="popup__title">Редактрировать профиль</h3>
-                    <input type="text" name="author" class="popup__author" placeholder="Введите личные данные" value="Жак-Ив Кусто">
+                    <input type="text" name="author" class="popup__firstline" placeholder="Введите личные данные" value="Жак-Ив Кусто">
                     <hr class="popup__line">
-                    <input type="text" name="profession" class="popup__profession" placeholder="Введите род деятельности" value="Исследователь океана">
+                    <input type="text" name="profession" class="popup__secondline" placeholder="Введите род деятельности" value="Исследователь океана">
                     <hr class="popup__line">
                     <button type="submit" name="save" class="popup__savebutton">Сохранить</button>
                 </div>
             </div>
         </div>    
+        <div class="popup" id="modal2">
+            <div class="popup__cont"> 
+                <button type="button" class="popup__closebutton">
+                    <div class="popup__closeimage"></div>
+                </button>
+                <div class="popup__container">
+                    <h3 class="popup__title">Новое место</h3>
+                    <input type="text" name="namecard" class="popup__firstline" placeholder="Название" value="">
+                    <hr class="popup__line">
+                    <input type="text" name="link" class="popup__secondline" placeholder="Ссылка на картинку" value="">
+                    <hr class="popup__line">
+                    <button type="submit" name="save" class="popup__savebutton">Сохранить</button>
+                </div>
+            </div>
+        </div>  
+        <div class="popup" id="modal3">
+            <div class="popup__cont3"> 
+                <button type="button" class="popup__closebutton">
+                    <div class="popup__closeimage"></div>
+                </button>
+                <div class="popup__container3">
+                    <img src="" class="popup__image">
+                    <h3 class="popup__titleimage"></h3>
+                </div>
+            </div>  
+        </div>    
+    
+    
+    
+    
+    
+    <template id="temp"> 
+        <div class="element">
+            <button type="button" class="element__delete">
+                    <div class="element__deletetop"></div>
+                    <div class="element__deletebot"></div>
+            </button>
+            <img src="" class="element__image" alt="Ваша картинка">
+            <div class="element__title">
+                <h3 class="element__titletext"></h3>
+                <button type="button" class="element__group">
+                    <div class="element__like element__like_white"></div>
+                </button>
+            </div> 
+        </div>
+    </template>    
+    
     <script src="./scripts/index.js"></script>
 </body> 
 </html>

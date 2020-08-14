@@ -9,3 +9,10 @@
     flex-direction: column;
     align-items: left;
 }
+
+@media (min-width : 320px) and (max-width : 869px) {
+    .popup__container{
+        width: 240px;
+        height: 258px;
+    }
+}

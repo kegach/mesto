@@ -4,3 +4,10 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (min-width : 320px) and (max-width : 869px) {
+    .popup__cont{
+        width: 240px;
+        height: 258px;
+    }
+}

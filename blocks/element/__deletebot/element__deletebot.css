@@ -1,0 +1,8 @@
+.element__deletebot{
+    background-image: url("../../../images/deletebot.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 15.44px;
+    height: 13.51px;
+    margin: auto;
+}

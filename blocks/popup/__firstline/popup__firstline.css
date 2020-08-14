@@ -1,4 +1,4 @@
-.popup__author{
+.popup__firstline{
     width: 83.255%;
     height: 27.26px;
     border: 0px;
@@ -10,4 +10,12 @@
     color: #000000;
     margin: 0;
     margin-left: 36px;
+}
+
+@media (min-width : 320px) and (max-width : 869px) {
+    .popup__firstline{
+        font-size: 12px;
+        line-height: 15px;
+        margin-left: 20px;
+    }
 }
