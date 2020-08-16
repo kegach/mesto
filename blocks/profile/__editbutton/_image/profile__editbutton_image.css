@@ -1,0 +1,5 @@
+.profile__editbutton_image{
+    background-image: url("../../../../images/editimage.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}

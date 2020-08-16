@@ -1,10 +1,10 @@
 .popup__closebutton{
-    height: 57,6px;
-    width: 57,6px;
+    height: 50px;
+    width: 50px;
     align-self: flex-end;
-    background: none;
     border: 0px ;
     padding: 0;
+    background: none;
 }
 
 .popup__closebutton:hover{
@@ -12,11 +12,9 @@
     cursor: pointer;
 }
 
-
-
 @media (min-width : 320px) and (max-width : 869px) {
     .popup__closebutton{
-        width: 45,6px;
-        height: 45,6px;
+        width: 38.6px;
+        height: 38.6px;
     }
 }

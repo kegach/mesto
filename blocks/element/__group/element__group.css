@@ -1,9 +1,9 @@
 .element__group{
-    background-color: white;
-    border: white;
-    height: 50%;
-    margin: auto 0; 
+    background: none;
+    border: none;
     padding: 0;
+    width: 21px;
+    height: 19px;
 }
 
 .element__group:hover{

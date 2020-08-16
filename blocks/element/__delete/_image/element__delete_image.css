@@ -1,0 +1,5 @@
+.element__delete_image{
+    background: 
+    url("../../../../images/deletetop.svg") 0 0 no-repeat,
+    url("../../../../images/deletebot.svg") 1px 5.5px no-repeat;
+}

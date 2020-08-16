@@ -17,86 +17,61 @@
                 <img src="./images/image.jpg" class="profile__avatar" alt="аватар">
                 <div class="profile__info">
                     <h1 class="profile__author">Жак-Ив Кусто</h1> 
-                    <button type="button" class="profile__editbutton">
-                            <div class="profile__editimage"></div>
-                    </button>
+                    <button type="button" class="profile__editbutton profile__editbutton_image"></button>
                     <p class="profile__profession">Исследователь океана</p>
                 </div>                
-                <button type="button" class="profile__addbutton">
-                    <div class="profile__addimage"></div>
-                </button>
+                <button type="button" class="profile__addbutton profile__addbutton_image"></button>
             </section>
 
-            <section class="elements">
-            
-            
-            </section>       
+            <ul class="elements">
+            </ul>       
         </main>
 
         <footer class="footer">
-            <h5 class="footer__copyright">&copy; 2020 Mesto Russia</h5>
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
     </div> 
-        <div class="popup" id="modal1">
-            <div class="popup__cont"> 
-                <button type="button" class="popup__closebutton">
-                    <div class="popup__closeimage"></div>
-                </button>
+        <div class="popup popup_type_edit">
+            <div class="popup__content"> 
+                <button type="button" class="popup__closebutton popup__closebutton_image"></button>
                 <div class="popup__container">
                     <h3 class="popup__title">Редактрировать профиль</h3>
-                    <input type="text" name="author" class="popup__firstline" placeholder="Введите личные данные" value="Жак-Ив Кусто">
-                    <hr class="popup__line">
-                    <input type="text" name="profession" class="popup__secondline" placeholder="Введите род деятельности" value="Исследователь океана">
-                    <hr class="popup__line">
+                    <input type="text" name="author" class="popup__firstline" placeholder="Введите личные данные">
+                    <input type="text" name="profession" class="popup__secondline" placeholder="Введите род деятельности">
                     <button type="submit" name="save" class="popup__savebutton">Сохранить</button>
                 </div>
             </div>
         </div>    
-        <div class="popup" id="modal2">
-            <div class="popup__cont"> 
-                <button type="button" class="popup__closebutton">
-                    <div class="popup__closeimage"></div>
-                </button>
+        <div class="popup popup_type_add">
+            <div class="popup__content"> 
+                <button type="button" class="popup__closebutton popup__closebutton_image"></button>
                 <div class="popup__container">
                     <h3 class="popup__title">Новое место</h3>
-                    <input type="text" name="namecard" class="popup__firstline" placeholder="Название" value="">
-                    <hr class="popup__line">
-                    <input type="text" name="link" class="popup__secondline" placeholder="Ссылка на картинку" value="">
-                    <hr class="popup__line">
+                    <input type="text" name="namecard" class="popup__firstline" placeholder="Название">
+                    <input type="link" name="link" required class="popup__secondline" placeholder="Ссылка на картинку">
                     <button type="submit" name="save" class="popup__savebutton">Сохранить</button>
                 </div>
             </div>
         </div>  
-        <div class="popup" id="modal3">
-            <div class="popup__cont3"> 
-                <button type="button" class="popup__closebutton">
-                    <div class="popup__closeimage"></div>
-                </button>
-                <div class="popup__container3">
+        <div class="popup popup_type_image">
+            <div class="popup__contentforimage"> 
+                <button type="button" class="popup__closebutton popup__closebutton_image"></button>
+                <div class="popup__containerforimage">
                     <img src="" class="popup__image">
                     <h3 class="popup__titleimage"></h3>
                 </div>
             </div>  
         </div>    
     
-    
-    
-    
-    
     <template id="temp"> 
-        <div class="element">
-            <button type="button" class="element__delete">
-                    <div class="element__deletetop"></div>
-                    <div class="element__deletebot"></div>
-            </button>
+        <li class="element">
+            <button type="button" class="element__delete element__delete_image"></button>
             <img src="" class="element__image" alt="Ваша картинка">
             <div class="element__title">
                 <h3 class="element__titletext"></h3>
-                <button type="button" class="element__group">
-                    <div class="element__like element__like_white"></div>
-                </button>
+                <button type="button" class="element__group element__like element__like_white"></button>
             </div> 
-        </div>
+        </li>
     </template>    
     
     <script src="./scripts/index.js"></script>

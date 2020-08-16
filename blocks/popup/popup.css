@@ -1,16 +1,18 @@
-@import url(./__cont/popup__cont.css);
+@import url(./__content/popup__content.css);
 @import url(./__container/popup__container.css);
 @import url(./__title/popup__title.css);
 @import url(./__firstline/popup__firstline.css);
 @import url(./__secondline/popup__secondline.css);
-@import url(./__line/popup__line.css);
 @import url(./__savebutton/popup__savebutton.css);
 @import url(./__closebutton/popup__closebutton.css);
-@import url(./__closeimage/popup__closeimage.css);
-@import url(./__cont3/popup__cont3.css);
-@import url(./__container3/popup__container3.css);
+@import url(./__closebutton/_image/popup__closebutton_image.css);
+@import url(./__contentforimage/popup__contentforimage.css);
+@import url(./__containerforimage/popup__containerforimage.css);
 @import url(./__image/popup__image.css);
 @import url(./__titleimage/popup__titleimage.css);
+@import url(./_type/_add/popup_type_add.css);
+@import url(./_type/_edit/popup_type_edit.css);
+@import url(./_type/_image/popup_type_image.css);
 
 
 .popup{
@@ -19,10 +21,6 @@
     color: white;
     text-decoration: none;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0px;
     margin: 0;

@@ -1,0 +1,5 @@
+.profile__addbutton_image{
+    background-image: url("../../../../images/addimage.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}

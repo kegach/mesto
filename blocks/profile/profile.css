@@ -3,9 +3,10 @@
 @import url(./__author/profile__author.css);
 @import url(./__profession/profile__profession.css);
 @import url(./__addbutton/profile__addbutton.css);
-@import url(./__addimage/profile__addimage.css);
+@import url(./__addbutton/_image/profile__addbutton_image.css);
 @import url(./__editbutton/profile__editbutton.css);
-@import url(./__editimage/profile__editimage.css);
+@import url(./__editbutton/_image/profile__editbutton_image.css);
+
 
 .profile {
     width: 68.90625%;

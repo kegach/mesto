@@ -3,18 +3,18 @@
 @import url(./__titletext/element__titletext.css);
 @import url(./__group/element__group.css);
 @import url(./__like/element__like.css);
-@import url(./__like/__like_white/element__like_white.css);
-@import url(./__like/__like_black/element__like_black.css);
+@import url(./__like/_white/element__like_white.css);
+@import url(./__like/_black/element__like_black.css);
 @import url(./__delete/element__delete.css);
-@import url(./__deletetop/element__deletetop.css);
-@import url(./__deletebot/element__deletebot.css);
+@import url(./__delete/_image/element__delete_image.css);
 
 .element{
     width: 282px;
-    max-height: 361px;
+    height: 361px;
     background: #FFFFFF;
     border-radius: 10px;
     position: relative;
+    padding: 0;
 }
 
 
