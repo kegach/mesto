@@ -44,17 +44,17 @@
     const formName = editFormModalWindow.querySelector('.popup__container');
     const formCard = cardFormModalWindow.querySelector('.popup__container');
 
-    let editFormModalWindowName = editFormModalWindow.querySelector('.popup__firstline');
-    let editFormModalWindowAbout = editFormModalWindow.querySelector('.popup__secondline');
-    let cardFormModalWindowNameCard = cardFormModalWindow.querySelector('.popup__firstline');
-    let cardFormModalWindowLink = cardFormModalWindow.querySelector('.popup__secondline');
+    const editFormModalWindowName = editFormModalWindow.querySelector('.popup__first-line');
+    const editFormModalWindowAbout = editFormModalWindow.querySelector('.popup__second-line');
+    const cardFormModalWindowNameCard = cardFormModalWindow.querySelector('.popup__first-line');
+    const cardFormModalWindowLink = cardFormModalWindow.querySelector('.popup__second-line');
 
-    let title = document.querySelector('.profile__author');
-    let subtitle = document.querySelector('.profile__profession');
+    const title = document.querySelector('.profile__author');
+    const subtitle = document.querySelector('.profile__profession');
     
     const images = document.querySelectorAll('.element__image');
-    let popupImage = imageModalWindow.querySelector('.popup__image');
-    let popupTitleImage = imageModalWindow.querySelector('.popup__titleimage');
+    const popupImage = imageModalWindow.querySelector('.popup__image');
+    const popupTitleImage = imageModalWindow.querySelector('.popup__titleimage');
 
     const elementlikes = document.querySelectorAll('.element__group');
     const elementdeletes = document.querySelectorAll('.element__delete'); 

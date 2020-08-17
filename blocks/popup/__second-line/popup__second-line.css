@@ -1,4 +1,4 @@
-.popup__firstline{
+.popup__second-line{
     width: 83.255%;
     height: 27.26px;
     border: 0px;
@@ -10,13 +10,15 @@
     color: #000000;
     margin: 0;
     margin-left: 36px;
+    margin-top: 30px;
     border-bottom: 1px solid #a0a0a0;
 }
 
 @media (min-width : 320px) and (max-width : 869px) {
-    .popup__firstline{
+    .popup__second-line{
         font-size: 12px;
         line-height: 15px;
         margin-left: 20px;
+        margin-top: 20px;
     }
 }
