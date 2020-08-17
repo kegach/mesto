@@ -4,6 +4,7 @@
     justify-content: center;
     max-height: 120px;
     position: relative;
+    text-align: left;
 }
 
 @media (min-width : 320px) and (max-width : 869px) {

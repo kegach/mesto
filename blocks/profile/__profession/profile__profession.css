@@ -7,11 +7,12 @@
     text-overflow: ellipsis;  
     white-space: nowrap;  
     overflow: hidden;
+    max-width: 325px;
 }
-
 
 @media (min-width : 870px) and (max-width : 1280px) {
     .profile__profession{
+        width: 310px;
         font-size: 16px;
         line-height: 20px;   
         margin-left: 5%;
@@ -22,5 +23,6 @@
     .profile__profession{
         font-size: 14px;
         line-height: 17px;
+        max-width: 210px;
     }
 }

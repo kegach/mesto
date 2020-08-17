@@ -4,8 +4,8 @@
     width: 24px;
     border: 1px solid #FFFFFF;
     position: absolute;
-    top: 38px;
-    left: 312px;
+    top: 40px;
+    left: 320px;
     align-self: center;
 }
 
@@ -17,16 +17,17 @@
 
 @media (min-width : 870px) and (max-width : 1280px) {
     .profile__editbutton{
-        top: 38px;
+        top: 40px;
+        left: 323px;
     }
 }
 
 
 @media (min-width : 320px) and (max-width : 869px) {
     .profile__editbutton{
-        top: 19px;
+        top: 17px;
         height: 22px;
         width: 22px;
-        left: 194px;
+        left: 213px;
     }
 }

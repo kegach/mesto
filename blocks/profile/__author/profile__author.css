@@ -6,12 +6,13 @@
     line-height: 56px;
     text-overflow: ellipsis;  
     white-space: nowrap;  
-    overflow: hidden 
+    overflow: hidden;
+    max-width: 325px;
 }
 
 @media (min-width : 870px) and (max-width : 1280px) {
     .profile__author{
-        width: 350px;
+        width: 310px;
         font-size: 40px;
         line-height: 54px;   
         margin-left: 5%;
@@ -21,5 +22,6 @@
 @media (min-width : 320px) and (max-width : 869px) {
     .profile__author{
         font-size: 27px;
+        max-width: 210px;
     }
 }
