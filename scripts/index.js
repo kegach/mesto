@@ -29,36 +29,37 @@
       createCards(item.name, item.link); 
     });
 
-    const openModal1Button = document.querySelector('.profile__editbutton');
-    const openModal2Button = document.querySelector('.profile__addbutton');
+    const openEditFormModalWindowButton = document.querySelector('.profile__editbutton');
+    const openCardFormModalWindowButton = document.querySelector('.profile__addbutton');
         
-    const modal1 = document.querySelector('.popup_type_edit');
-    const modal2 = document.querySelector('.popup_type_add');
-    const modal3 = document.querySelector('.popup_type_image');
-    const closeModal1Button = modal1.querySelector('.popup__closebutton');
-    const closeModal2Button = modal2.querySelector('.popup__closebutton');
-    const closeModal3Button = modal3.querySelector('.popup__closebutton');
-    const saveModal1Button = modal1.querySelector('.popup__savebutton');
-    const saveModal2Button = modal2.querySelector('.popup__savebutton');
+    const editFormModalWindow = document.querySelector('.popup_type_edit');
+    const cardFormModalWindow = document.querySelector('.popup_type_add');
+    const imageModalWindow = document.querySelector('.popup_type_image');
+    const closeEditFormModalWindowButton = editFormModalWindow.querySelector('.popup__crossbutton');
+    const closeCardFormModalWindowButton = cardFormModalWindow.querySelector('.popup__crossbutton');
+    const closeImageModalWindowButton = imageModalWindow.querySelector('.popup__crossbutton');
+    const saveEditFormModalWindowButton = editFormModalWindow.querySelector('.popup__savebutton');
+    const saveCardFormModalWindowButton = cardFormModalWindow.querySelector('.popup__savebutton');
 
-    const form1= modal1.querySelector('.popup__container');
-    const form2 = modal2.querySelector('.popup__container');
+    const formName = editFormModalWindow.querySelector('.popup__container');
+    const formCard = cardFormModalWindow.querySelector('.popup__container');
 
-    let modal1Name = modal1.querySelector('.popup__firstline');
-    let modal1About = modal1.querySelector('.popup__secondline');
-    let modal2NameCard = modal2.querySelector('.popup__firstline');
-    let modal2Link = modal2.querySelector('.popup__secondline');
+    let editFormModalWindowName = editFormModalWindow.querySelector('.popup__firstline');
+    let editFormModalWindowAbout = editFormModalWindow.querySelector('.popup__secondline');
+    let cardFormModalWindowNameCard = cardFormModalWindow.querySelector('.popup__firstline');
+    let cardFormModalWindowLink = cardFormModalWindow.querySelector('.popup__secondline');
 
     let title = document.querySelector('.profile__author');
     let subtitle = document.querySelector('.profile__profession');
     
     const images = document.querySelectorAll('.element__image');
-    let popupImage = modal3.querySelector('.popup__image');
-    let popupTitleImage = modal3.querySelector('.popup__titleimage');
+    let popupImage = imageModalWindow.querySelector('.popup__image');
+    let popupTitleImage = imageModalWindow.querySelector('.popup__titleimage');
 
     const elementlikes = document.querySelectorAll('.element__group');
     const elementdeletes = document.querySelectorAll('.element__delete'); 
-     
+    const elements = document.querySelector('.elements');
+    
     elementlikes.forEach(function(item){
       item.addEventListener('click', () => toggleLike(item));
     }); 
@@ -68,26 +69,18 @@
     }); 
 
     images.forEach(function(item){
-      item.addEventListener('click', () => togglePopup(modal3));
+      item.addEventListener('click', () => togglePopup(imageModalWindow));
       item.addEventListener('click', () => openImage(item));
     }); 
     
-    function togglePopup(mod = '') {
+    function togglePopup(mod) {
       mod.classList.toggle('popup_opened'); 
-      if (mod === modal1) {
-        modal1Name.value = title.textContent;
-        modal1About.value = subtitle.textContent;
-      };
-      if (mod === modal2) {
-        modal2NameCard.value = '';
-        modal2Link.value = '';
-      }
     }; 
 
     function formSubmitHandler (evt) {
       evt.preventDefault(); 
-      title.textContent = modal1Name.value;
-      subtitle.textContent = modal1About.value;
+      title.textContent = editFormModalWindowName.value;
+      subtitle.textContent = editFormModalWindowAbout.value;
     }; 
 
     function createCards(cardName, cardLink){
@@ -96,24 +89,37 @@
       const element = template.cloneNode(true);        
       element.querySelector('.element__titletext').textContent = cardName;
       element.querySelector('.element__image').src = cardLink;
-      elements.append(element);  
+      appendCard (element);
     };
 
-    function formNewCard (evt){
-      evt.preventDefault(); 
+    function formNewCard (){ 
       const elements = document.querySelector('.elements');
       const template = document.querySelector('#temp').content;
       const element = template.cloneNode(true);  
-      element.querySelector('.element__image').src = modal2Link.value;
-      element.querySelector('.element__titletext').textContent = modal2NameCard.value;
+      element.querySelector('.element__image').src = cardFormModalWindowLink.value;
+      element.querySelector('.element__titletext').textContent = cardFormModalWindowNameCard.value;
       const like = element.querySelector('.element__group');
       like.addEventListener('click', () => toggleLike(like));
       const deleteCard = element.querySelector('.element__delete');
       deleteCard.addEventListener('click', () => toggleDelete(deleteCard));
       const imageCard = element.querySelector('.element__image');
-      imageCard.addEventListener('click', () => togglePopup(modal3));
+      imageCard.addEventListener('click', () => togglePopup(imageModalWindow));
       imageCard.addEventListener('click', () => openImage(imageCard));
+      prependCard (element);
+    };
+
+    function prependCard (element){ 
+      const elements = document.querySelector('.elements');
       elements.prepend(element);
+    };
+
+    function appendCard (element){ 
+      const elements = document.querySelector('.elements');
+      elements.append(element);
+    };
+
+    function formSubmitNewCard (evt){
+      evt.preventDefault(); 
     };
 
     function toggleLike(item) {
@@ -136,16 +142,27 @@
       popupTitleImage.textContent = titleImage.textContent;
     }; 
 
-    openModal1Button.addEventListener('click', () => togglePopup(modal1));
-    openModal2Button.addEventListener('click', () => togglePopup(modal2));
-    closeModal1Button.addEventListener('click', () => togglePopup(modal1));
-    closeModal2Button.addEventListener('click', () => togglePopup(modal2));
-    closeModal3Button.addEventListener('click', () => togglePopup(modal3));
+    openEditFormModalWindowButton.addEventListener('click', function() {
+      togglePopup(editFormModalWindow);
+      editFormModalWindowName.value = title.textContent;
+      editFormModalWindowAbout.value = subtitle.textContent;
+    });
+    
+    openCardFormModalWindowButton.addEventListener('click', function() {
+      togglePopup(cardFormModalWindow);
+      cardFormModalWindowNameCard.value = '';
+      cardFormModalWindowLink.value = '';
+    });
 
-    saveModal1Button.addEventListener('click', formSubmitHandler);
-    form1.addEventListener('submit', formSubmitHandler);
-    saveModal1Button.addEventListener('click', () => togglePopup(modal1));    
+
+    closeEditFormModalWindowButton.addEventListener('click', () => togglePopup(editFormModalWindow));
+    closeCardFormModalWindowButton.addEventListener('click', () => togglePopup(cardFormModalWindow));
+    closeImageModalWindowButton.addEventListener('click', () => togglePopup(imageModalWindow));
+
+    saveEditFormModalWindowButton.addEventListener('click', formSubmitHandler);
+    formName.addEventListener('submit', formSubmitHandler);
+    saveEditFormModalWindowButton.addEventListener('click', () => togglePopup(editFormModalWindow));    
         
-    saveModal2Button.addEventListener('click', formNewCard);
-    form2.addEventListener('submit', formNewCard);
-    saveModal2Button.addEventListener('click', () => togglePopup(modal2));
+    saveCardFormModalWindowButton.addEventListener('click', formNewCard);
+    formCard.addEventListener('submit', formSubmitNewCard);
+    saveCardFormModalWindowButton.addEventListener('click', () => togglePopup(cardFormModalWindow));

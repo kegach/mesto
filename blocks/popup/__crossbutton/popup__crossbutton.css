@@ -1,4 +1,4 @@
-.popup__closebutton{
+.popup__crossbutton{
     height: 50px;
     width: 50px;
     align-self: flex-end;
@@ -7,13 +7,13 @@
     background: none;
 }
 
-.popup__closebutton:hover{
+.popup__crossbutton:hover{
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media (min-width : 320px) and (max-width : 869px) {
-    .popup__closebutton{
+    .popup__crossbutton{
         width: 38.6px;
         height: 38.6px;
     }
