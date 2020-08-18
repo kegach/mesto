@@ -1,4 +1,4 @@
-.popup__containerforimage{
+.popup__container-image{
     opacity: 1;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 @media (min-width : 320px) and (max-width : 869px) {
-    .popup__containerforimage{
+    .popup__container-image{
         margin-right: 40px;
     }
 }
