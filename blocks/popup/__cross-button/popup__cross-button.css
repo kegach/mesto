@@ -1,4 +1,4 @@
-.popup__crossbutton{
+.popup__cross-button{
     height: 50px;
     width: 50px;
     align-self: flex-end;
@@ -7,13 +7,13 @@
     background: none;
 }
 
-.popup__crossbutton:hover{
+.popup__cross-button:hover{
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media (min-width : 320px) and (max-width : 869px) {
-    .popup__crossbutton{
+    .popup__cross-button{
         width: 38.6px;
         height: 38.6px;
     }

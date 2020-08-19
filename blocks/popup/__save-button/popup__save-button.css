@@ -1,4 +1,4 @@
-.popup__savebutton{
+.popup__save-button{
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -15,13 +15,13 @@
     margin-top: 48px;
 }
 
-.popup__savebutton:hover{
+.popup__save-button:hover{
     background: rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
 
 @media (min-width : 320px) and (max-width : 869px) {
-    .popup__savebutton{
+    .popup__save-button{
         width: 200px;
         height: 40px;
         font-size: 14px;

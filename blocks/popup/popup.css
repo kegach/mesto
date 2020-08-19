@@ -3,9 +3,9 @@
 @import url(./__title/popup__title.css);
 @import url(./__first-line/popup__first-line.css);
 @import url(./__second-line/popup__second-line.css);
-@import url(./__savebutton/popup__savebutton.css);
-@import url(./__crossbutton/popup__crossbutton.css);
-@import url(./__crossbutton/_image/popup__crossbutton_image.css);
+@import url(./__save-button/popup__save-button.css);
+@import url(./__cross-button/popup__cross-button.css);
+@import url(./__cross-button/_image/popup__cross-button_image.css);
 @import url(./__content-image/popup__content-image.css);
 @import url(./__container-image/popup__container-image.css);
 @import url(./__image/popup__image.css);

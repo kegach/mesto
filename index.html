@@ -17,10 +17,10 @@
                 <img src="./images/image.jpg" class="profile__avatar" alt="аватар">
                 <div class="profile__info">
                     <h1 class="profile__author">Жак-Ив Кусто</h1> 
-                    <button type="button" class="profile__editbutton profile__editbutton_image"></button>
+                    <button type="button" class="profile__edit-button profile__edit-button_image"></button>
                     <p class="profile__profession">Исследователь океана</p>
                 </div>                
-                <button type="button" class="profile__addbutton profile__addbutton_image"></button>
+                <button type="button" class="profile__add-button profile__add-button_image"></button>
             </section>
 
             <section>
@@ -35,29 +35,29 @@
     </div> 
         <div class="popup popup_type_edit">
             <div class="popup__content"> 
-                <button type="button" class="popup__crossbutton popup__crossbutton_image"></button>
-                <div class="popup__container">
+                <button type="button" class="popup__cross-button popup__cross-button_image"></button>
+                <form class="popup__container">
                     <h3 class="popup__title">Редактрировать профиль</h3>
                     <input type="text" name="author" class="popup__first-line" placeholder="Введите личные данные">
                     <input type="text" name="profession" class="popup__second-line" placeholder="Введите род деятельности">
-                    <button type="submit" name="save" class="popup__savebutton">Сохранить</button>
-                </div>
+                    <button type="submit" name="save" class="popup__save-button">Сохранить</button>
+                </form>
             </div>
         </div>    
         <div class="popup popup_type_add">
             <div class="popup__content"> 
-                <button type="button" class="popup__crossbutton popup__crossbutton_image"></button>
-                <div class="popup__container">
+                <button type="button" class="popup__cross-button popup__cross-button_image"></button>
+                <form class="popup__container">
                     <h3 class="popup__title">Новое место</h3>
                     <input type="text" name="namecard" class="popup__first-line" placeholder="Название">
                     <input type="link" name="link" required class="popup__second-line" placeholder="Ссылка на картинку">
-                    <button type="submit" name="save" class="popup__savebutton">Сохранить</button>
-                </div>
+                    <button type="submit" name="save" class="popup__save-button">Сохранить</button>
+                </form>
             </div>
         </div>  
         <div class="popup popup_type_image">
             <div class="popup__content-image"> 
-                <button type="button" class="popup__crossbutton popup__crossbutton_image"></button>
+                <button type="button" class="popup__cross-button popup__cross-button_image"></button>
                 <div class="popup__container-image">
                     <img src="" class="popup__image">
                     <h3 class="popup__title-image"></h3>

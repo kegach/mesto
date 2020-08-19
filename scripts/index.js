@@ -29,19 +29,19 @@
       prependCard(item.name, item.link); 
     });
 
-    const openEditFormModalWindowButton = document.querySelector('.profile__editbutton');
-    const openCardFormModalWindowButton = document.querySelector('.profile__addbutton');
+    const openEditFormModalWindowButton = document.querySelector('.profile__edit-button');
+    const openCardFormModalWindowButton = document.querySelector('.profile__add-button');
         
     const editFormModalWindow = document.querySelector('.popup_type_edit');
     const cardFormModalWindow = document.querySelector('.popup_type_add');
     const imageModalWindow = document.querySelector('.popup_type_image');
-    const closeEditFormModalWindowButton = editFormModalWindow.querySelector('.popup__crossbutton');
-    const closeCardFormModalWindowButton = cardFormModalWindow.querySelector('.popup__crossbutton');
-    const closeImageModalWindowButton = imageModalWindow.querySelector('.popup__crossbutton');
-    const saveEditFormModalWindowButton = editFormModalWindow.querySelector('.popup__savebutton');
-    const saveCardFormModalWindowButton = cardFormModalWindow.querySelector('.popup__savebutton');
+    const closeEditFormModalWindowButton = editFormModalWindow.querySelector('.popup__cross-button');
+    const closeCardFormModalWindowButton = cardFormModalWindow.querySelector('.popup__cross-button');
+    const closeImageModalWindowButton = imageModalWindow.querySelector('.popup__cross-button');
+    const saveEditFormModalWindowButton = editFormModalWindow.querySelector('.popup__save-button');
+    const saveCardFormModalWindowButton = cardFormModalWindow.querySelector('.popup__save-button');
 
-    const formName = editFormModalWindow.querySelector('.popup__container');
+    const formEdit = editFormModalWindow.querySelector('.popup__container');
     const formCard = cardFormModalWindow.querySelector('.popup__container');
 
     const editFormModalWindowName = editFormModalWindow.querySelector('.popup__first-line');
@@ -129,9 +129,7 @@
     closeCardFormModalWindowButton.addEventListener('click', () => togglePopup(cardFormModalWindow));
     closeImageModalWindowButton.addEventListener('click', () => togglePopup(imageModalWindow));
     
-    formName.addEventListener('submit', formSubmitHandler);
-    saveEditFormModalWindowButton.addEventListener('click', formSubmitHandler);
-    
-    formCard.addEventListener('submit', formSubmitNewCard);
-    saveCardFormModalWindowButton.addEventListener('click', formSubmitNewCard);
+    formEdit.addEventListener('submit', formSubmitHandler);
+    formCard.addEventListener('submit', formSubmitNewCard); 
+
 
