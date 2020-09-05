@@ -44,10 +44,10 @@
     const formEdit = editFormModalWindow.querySelector('.popup__container');
     const formCard = cardFormModalWindow.querySelector('.popup__container');
 
-    const editFormModalWindowName = editFormModalWindow.querySelector('.popup__first-line');
-    const editFormModalWindowAbout = editFormModalWindow.querySelector('.popup__second-line');
-    const cardFormModalWindowNameCard = cardFormModalWindow.querySelector('.popup__first-line');
-    const cardFormModalWindowLink = cardFormModalWindow.querySelector('.popup__second-line');
+    const editFormModalWindowName = editFormModalWindow.querySelector('#input-name');
+    const editFormModalWindowAbout = editFormModalWindow.querySelector('#input-about');
+    const cardFormModalWindowNameCard = cardFormModalWindow.querySelector('#input-namecard');
+    const cardFormModalWindowLink = cardFormModalWindow.querySelector('#input-link');
 
     const title = document.querySelector('.profile__author');
     const subtitle = document.querySelector('.profile__profession');
@@ -132,4 +132,38 @@
     formEdit.addEventListener('submit', formSubmitHandler);
     formCard.addEventListener('submit', formSubmitNewCard); 
 
+    function closePopup(evt){
+      evt.currentTarget.classList.remove('popup_opened');
+    }
+    
+    function closePopupSpecial(mod){
+      mod.addEventListener('click', closePopup);  
+      mod.firstElementChild.addEventListener('mouseover', function() {
+        mod.removeEventListener('click', closePopup);  
+      });
+      mod.firstElementChild.addEventListener('mouseout', function() {
+        mod.addEventListener('click', closePopup);  
+      });
+    };
+
+    closePopupSpecial(editFormModalWindow);
+    closePopupSpecial(cardFormModalWindow);
+    closePopupSpecial(imageModalWindow);
+
+    function escClose(evt) {
+      if (evt.key == 'Escape') {
+        editFormModalWindow.classList.remove('popup_opened');
+        cardFormModalWindow.classList.remove('popup_opened');
+        imageModalWindow.classList.remove('popup_opened');
+      }
+    };
+    
+    document.addEventListener('keydown', escClose);
+    
+
+
+ 
+
+
+    
 

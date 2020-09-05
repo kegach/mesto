@@ -1,4 +1,4 @@
-.popup__first-line{
+.popup__input-error{
     width: 83.255%;
     height: 27.26px;
     border: 0px;
@@ -7,14 +7,15 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: #000000;
+    color: red;
     margin: 0;
     margin-left: 36px;
-    border-bottom: 1px solid #a0a0a0;
+    margin-top: 5px;
+    visibility: hidden;
 }
 
 @media (min-width : 320px) and (max-width : 869px) {
-    .popup__first-line{
+    .popup__input-error{
         font-size: 12px;
         line-height: 15px;
         margin-left: 20px;

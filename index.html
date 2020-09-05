@@ -34,26 +34,30 @@
         </footer>
     </div> 
         <div class="popup popup_type_edit">
-            <div class="popup__content"> 
+            <form class="popup__content"> 
                 <button type="button" class="popup__cross-button popup__cross-button_image"></button>
-                <form class="popup__container">
+                <div class="popup__container">
                     <h3 class="popup__title">Редактрировать профиль</h3>
-                    <input type="text" name="author" class="popup__first-line" placeholder="Введите личные данные">
-                    <input type="text" name="profession" class="popup__second-line" placeholder="Введите род деятельности">
+                    <input type="text" id="input-name" required minlength="2" maxlength="40" class="popup__input" placeholder="Введите личные данные">
+                    <span class='popup__input-error' id='input-name-error'></span>
+                    <input type="text" id="input-about" required minlength="2" maxlength="200" class="popup__input" placeholder="Введите род деятельности">
+                    <span class='popup__input-error' id='input-about-error'></span>
                     <button type="submit" name="save" class="popup__save-button">Сохранить</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>    
         <div class="popup popup_type_add">
-            <div class="popup__content"> 
+            <form class="popup__content"> 
                 <button type="button" class="popup__cross-button popup__cross-button_image"></button>
-                <form class="popup__container">
+                <div class="popup__container">
                     <h3 class="popup__title">Новое место</h3>
-                    <input type="text" name="namecard" class="popup__first-line" placeholder="Название">
-                    <input type="link" name="link" required class="popup__second-line" placeholder="Ссылка на картинку">
+                    <input type="text" id="input-namecard" required minlength="1" maxlength="30"class="popup__input" placeholder="Название">
+                    <span class='popup__input-error' id='input-namecard-error'></span>
+                    <input type="url" id="input-link" required class="popup__input" placeholder="Ссылка на картинку">
+                    <span class='popup__input-error' id='input-link-error'></span>
                     <button type="submit" name="save" class="popup__save-button">Сохранить</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>  
         <div class="popup popup_type_image">
             <div class="popup__content-image"> 
@@ -77,5 +81,6 @@
     </template>    
     
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body> 
 </html>

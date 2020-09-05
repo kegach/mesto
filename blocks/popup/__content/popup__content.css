@@ -3,6 +3,8 @@
     height: 371px;
     display: flex;
     flex-direction: column;
+    z-index: 99;
+    cursor: default;
 }
 
 
