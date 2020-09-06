@@ -91,19 +91,15 @@ function openPopup(mod) {
   mod.classList.add("popup_opened");
   mod.addEventListener("click", closePopupOverlay);
   document.addEventListener("keydown", escClose);
-  mod.onclick = function (evt) {
-    evt.target.addEventListener("click", function () {
-      this.removeEventListener("click", closePopupOverlay);
-    });
-  };
-}
+};
 
 function closePopupOverlay(evt) {
   evt.currentTarget.classList.remove("popup_opened");
 }
 
 function closePopup(mod) {
-  mod.classList.remove("popup_opened");
+  mod.classList.remove("popup_opened");  
+  mod.removeEventListener("click", closePopupOverlay);
   document.removeEventListener("keydown", escClose);
 }
 
