@@ -89,15 +89,31 @@ initialCards.forEach(function (item) {
 
 function openPopup(mod) {
   mod.classList.add("popup_opened");
-  mod.addEventListener("click", closePopupEvt);
+  mod.addEventListener("click", closePopupOverlay);
+  document.addEventListener("keydown", escClose);
+  mod.onclick = function (evt) {
+    evt.target.addEventListener("click", function () {
+      this.removeEventListener("click", closePopupOverlay);
+    });
+  };
+}
+
+function closePopupOverlay(evt) {
+  evt.currentTarget.classList.remove("popup_opened");
 }
 
 function closePopup(mod) {
   mod.classList.remove("popup_opened");
+  document.removeEventListener("keydown", escClose);
 }
 
-function closePopupEvt(evt) {
-  evt.currentTarget.classList.remove("popup_opened");
+function escClose(evt) {
+  const esc = evt.currentTarget.querySelectorAll('.popup');
+  if (evt.key === "Escape") {
+    esc.forEach(function(item) {
+       closePopup(item);
+    })
+  }
 }
 
 function prependCard(cardName, cardLink) {
@@ -105,7 +121,6 @@ function prependCard(cardName, cardLink) {
 }
 
 function createCard(cardName, cardLink) {
-  const template = document.querySelector("#temp").content;
   const element = template.cloneNode(true);
   element.querySelector(".element__text").textContent = cardName;
   element.querySelector(".element__image").src = cardLink;
@@ -133,34 +148,34 @@ function openImage(item) {
   popupImage.src = image.src;
   popupTitleImage.textContent = titleImage.textContent;
   openPopup(imageModalWindow);
-  document.addEventListener("keydown", escClose);
 }
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
   title.textContent = editFormModalWindowName.value;
   subtitle.textContent = editFormModalWindowAbout.value;
-  togglePopup(editFormModalWindow);
+  closePopup(editFormModalWindow);
 }
 
 function formSubmitNewCard(evt) {
   evt.preventDefault();
   prependCard(cardFormModalWindowNameCard.value, cardFormModalWindowLink.value);
-  togglePopup(cardFormModalWindow);
+  closePopup(cardFormModalWindow);
 }
+
+formEdit.addEventListener("submit", formSubmitHandler);
+formCard.addEventListener("submit", formSubmitNewCard);
 
 openEditFormModalWindowButton.addEventListener("click", function () {
   openPopup(editFormModalWindow);
   editFormModalWindowName.value = title.textContent;
   editFormModalWindowAbout.value = subtitle.textContent;
-  document.addEventListener("keydown", escClose);
 });
 
 openCardFormModalWindowButton.addEventListener("click", function () {
   openPopup(cardFormModalWindow);
   cardFormModalWindowNameCard.value = "";
   cardFormModalWindowLink.value = "";
-  document.addEventListener("keydown", escClose);
 });
 
 closeEditFormModalWindowButton.addEventListener("click", () =>
@@ -174,31 +189,3 @@ closeCardFormModalWindowButton.addEventListener("click", () =>
 closeImageModalWindowButton.addEventListener("click", () =>
   closePopup(imageModalWindow)
 );
-
-formEdit.addEventListener("submit", formSubmitHandler);
-formCard.addEventListener("submit", formSubmitNewCard);
-
-editFormModalWindow.onclick = function (evt) {
-  evt.target.addEventListener("click", function () {
-    this.removeEventListener("click", closePopupEvt);
-  });
-};
-cardFormModalWindow.onclick = function (evt) {
-  evt.target.addEventListener("click", function () {
-    this.removeEventListener("click", closePopupEvt);
-  });
-};
-imageModalWindow.onclick = function (evt) {
-  evt.target.addEventListener("click", function () {
-    this.removeEventListener("click", closePopupEvt);
-  });
-};
-
-function escClose(evt) {
-  if (evt.key == "Escape") {
-    editFormModalWindow.classList.remove("popup_opened");
-    cardFormModalWindow.classList.remove("popup_opened");
-    imageModalWindow.classList.remove("popup_opened");
-  }
-  document.removeEventListener("keydown", escClose);
-}

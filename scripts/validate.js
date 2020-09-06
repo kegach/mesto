@@ -42,7 +42,6 @@ const setEventListeners = (obj, formElement) => {
     stopElement.addEventListener("click", function () {
       hideInputError(obj, formElement, inputElement);
       buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
-      formElement.reset();
     });
     editFormModalWindow.firstElementChild.addEventListener( "click", function () {
         event.stopPropagation();
@@ -53,9 +52,7 @@ const setEventListeners = (obj, formElement) => {
       hideInputError(obj, formElement, inputElement);
       buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
     });
-    cardFormModalWindow.firstElementChild.addEventListener(
-      "click",
-      function () {
+    cardFormModalWindow.firstElementChild.addEventListener("click", function () {
         event.stopPropagation();
       }
     );
@@ -69,7 +66,7 @@ const setEventListeners = (obj, formElement) => {
 
 const enableValidation = (obj) => {
   const formList = Array.from(
-    document.getElementsByTagName(`${obj.formSelector}`)
+    document.querySelectorAll(`.${obj.formSelector}`)
   );
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
@@ -80,7 +77,7 @@ const enableValidation = (obj) => {
 };
 
 enableValidation({
-  formSelector: "form",
+  formSelector: "popup__content",
   inputSelector: "popup__input",
   submitButtonSelector: "popup__save-button",
   inactiveButtonClass: "popup__save-button_inactive",
