@@ -83,15 +83,43 @@ const popupTitleImage = imageModalWindow.querySelector(".popup__title-image");
 const elements = document.querySelector(".elements");
 const template = document.querySelector("#temp").content;
 
+
 initialCards.forEach(function (item) {
   prependCard(item.name, item.link);
 });
 
 function openPopup(mod) {
+  const inputList = Array.from(mod.querySelectorAll(".popup__input"));
+  const buttonElement = mod.querySelector(".popup__save-button");
+
+  clearModal(
+    {
+      formSelector: "popup__content",
+      inputSelector: "popup__input",
+      submitButtonSelector: "popup__save-button",
+      inactiveButtonClass: "popup__save-button_inactive",
+      inputErrorClass: "popup__input_error",
+      errorClass: "popup__input-error_active",
+    },
+    mod,
+    inputList,
+    buttonElement
+  );
+
   mod.classList.add("popup_opened");
   mod.addEventListener("click", closePopupOverlay);
   document.addEventListener("keydown", escClose);
-};
+  mod.firstElementChild.addEventListener("click", function () {
+    event.stopPropagation();
+  });
+}
+
+function clearModal(obj, mod, inputList, buttonElement) {
+  inputList.forEach((inputElement) => {
+    hideInputError(obj, mod.firstElementChild, inputElement);
+    buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
+  });
+}
 
 function closePopupOverlay(evt) {
   evt.currentTarget.classList.remove("popup_opened");

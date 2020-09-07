@@ -32,34 +32,11 @@ const setEventListeners = (obj, formElement) => {
   const buttonElement = formElement.querySelector(
     `.${obj.submitButtonSelector}`
   );
-  const stopElement = formElement.querySelector(".popup__cross-button");
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("keydown", escClose);
     inputElement.addEventListener("input", function () {
       checkInputValidity(obj, formElement, inputElement);
       toggleButtonState(obj, inputList, buttonElement);
-    });
-    stopElement.addEventListener("click", function () {
-      hideInputError(obj, formElement, inputElement);
-      buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
-    });
-    editFormModalWindow.firstElementChild.addEventListener( "click", function () {
-        event.stopPropagation();
-      }
-    );
-    editFormModalWindow.addEventListener("click", function () {
-      event.stopPropagation();
-      hideInputError(obj, formElement, inputElement);
-      buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
-    });
-    cardFormModalWindow.firstElementChild.addEventListener("click", function () {
-        event.stopPropagation();
-      }
-    );
-    cardFormModalWindow.addEventListener("click", function () {
-      event.stopPropagation();
-      hideInputError(obj, formElement, inputElement);
-      buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
     });
   });
 };
