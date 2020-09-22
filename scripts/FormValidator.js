@@ -1,0 +1,86 @@
+export default class FormValidator {
+  constructor(data, cardSelector) {
+    this._formSelector = data.formSelector;
+    this._inputSelector = data.inputSelector;
+    this._submitButtonSelector = data.submitButtonSelector;
+    this._inactiveButtonClass = data.inactiveButtonClass;
+    this._inputErrorClass = data.inputErrorClass;
+    this._errorClass = data.errorClass;
+    this._cardSelector = cardSelector;
+    this._popup = document.querySelector(this._cardSelector);
+  }
+
+  _showInputError(inputElement) {
+    inputElement.classList.add(`${this._inputErrorClass}`);
+    this._popup.querySelector(`#${inputElement.id}-error`).textContent =
+      inputElement.validationMessage;
+    this._popup
+      .querySelector(`#${inputElement.id}-error`)
+      .classList.add(`${this._errorClass}`);
+  }
+
+  _hideInputError(inputElement) {
+    const errorElement = document
+      .querySelector(this._cardSelector)
+      .querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove(`${this._inputErrorClass}`);
+    errorElement.classList.remove(`${this._errorClass}`);
+    errorElement.textContent = "";
+  }
+
+  _checkInputValidity(inputElement) {
+    if (inputElement.validity.valid === false) {
+      this._showInputError(inputElement);
+    } else {
+      this._hideInputError(inputElement);
+    }
+  }
+
+  _setEventListeners() {
+    const _inputList = Array.from(
+      this._popup.querySelectorAll(`.${this._inputSelector}`)
+    );
+    const _buttonElement = this._popup.querySelector(
+      `.${this._submitButtonSelector}`
+    );
+
+    _inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement),
+          this._toggleButtonState(_buttonElement);
+      });
+    });
+  }
+
+  enableValidation() {
+    const _formList = Array.from(
+      document.querySelectorAll(`.${this._formSelector}`)
+    );
+    _formList.forEach((formElement) => {
+      formElement.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+      });
+      this._setEventListeners();
+    });
+  }
+
+  _hasInvalidInput() {
+    const _inputList = Array.from(
+      this._popup.querySelectorAll(`.${this._inputSelector}`)
+    );
+    return _inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
+    });
+  }
+
+  _toggleButtonState(_buttonElement) {
+    if (this._hasInvalidInput() === true) {
+      _buttonElement.classList.add(`${this._inactiveButtonClass}`);
+      _buttonElement.setAttribute("disabled", "disabled");
+    } else {
+      _buttonElement.classList.remove(`${this._inactiveButtonClass}`);
+      _buttonElement.removeAttribute("disabled", "disabled");
+    }
+  }
+}
+
