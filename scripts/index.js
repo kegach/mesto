@@ -88,31 +88,40 @@ const obj = {
   errorClass: "popup__input-error_active",
 };
 
-initialCards.forEach(function (item) {
+const editValid = new FormValidator(obj, ".popup_type_edit");
+const cardValid = new FormValidator(obj, ".popup_type_add");
+
+function makeCard(item) {
   const card = new Card(item, ".card");
   const cardElement = card.createCard();
-  elements.prepend(cardElement);
-  const imageCard = cardElement.querySelector(".element__image");
+  elements.prepend(cardElement);  const imageCard = cardElement.querySelector(".element__image");
   imageCard.addEventListener("click", () => openImage(imageCard));
+}
+
+initialCards.forEach(function (item) {
+  makeCard(item);
 });
 
-function openPopup(mod) {
+function activateValidation(mod) {
   const inputList = Array.from(mod.querySelectorAll(".popup__input"));
   const buttonElement = mod.querySelector(".popup__save-button");
-  if (mod === editFormModalWindow) {
-    const validEdit = new FormValidator(obj, ".popup_type_edit");
-    const validEditActive = validEdit.enableValidation();
+  buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
+  if (mod === editFormModalWindow){ 
+    const validActive = editValid.enableValidation();   
     inputList.forEach((inputElement) => {
-      const validEditActiveHide = validEdit._hideInputError(inputElement);
-      buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
+      const validActiveHide = editValid._hideInputError(inputElement);
     });
-  } else if (mod === cardFormModalWindow) {
-    const validAdd = new FormValidator(obj, ".popup_type_add");
-    const validAddActive = validAdd.enableValidation();
+  } else if (mod === cardFormModalWindow){
+    const validActive = cardValid.enableValidation();   
     inputList.forEach((inputElement) => {
-      const validAddActiveHide = validAdd._hideInputError(inputElement);
-      buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
+      const validActiveHide = cardValid._hideInputError(inputElement);
     });
+  }
+}
+
+function openPopup(mod) {
+  if ( mod !== imageModalWindow){
+    activateValidation(mod); 
   }
   mod.classList.add("popup_opened");
   mod.addEventListener("click", closePopupOverlay);
@@ -187,11 +196,7 @@ function formSubmitNewCard(evt) {
     name: cardFormModalWindowNameCard.value,
     link: cardFormModalWindowLink.value,
   };
-  const card = new Card(item, ".card");
-  const cardElement = card.createCard();
-  elements.prepend(cardElement);
-  const imageCard = cardElement.querySelector(".element__image");
-  imageCard.addEventListener("click", () => openImage(imageCard));
+  makeCard(item);
   closePopup(cardFormModalWindow);
 }
 
