@@ -1,19 +1,19 @@
-import { title, subtitle, editFormModalWindowName, editFormModalWindowAbout } from "../utils/constans.js";
 
 export default class UserInfo {
-    constructor( data ){
-        this._name = data.name;
-        this._about = data.about;
+    constructor(nameSelector, aboutSelector){
+        this._name = document.querySelector(nameSelector);
+        this._about = document.querySelector(aboutSelector);
     }
 
     getUserInfo() {
-        this._name = title.textContent; 
-        this._about = subtitle.textContent;
+        const name = this._name.textContent;
+        const about = this._about.textContent;
+        return  {  name, about };
     }
 
-    setUserInfo() {
-        title.textContent= editFormModalWindowName.value;
-        subtitle.textContent = editFormModalWindowAbout.value;
+    setUserInfo(values) {
+        this._name.textContent = values[0];
+        this._about.textContent = values[1];
     }
 
 }

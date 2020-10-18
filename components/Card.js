@@ -1,7 +1,8 @@
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, {handleCardClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._cardSelector = cardSelector;
   }
 
@@ -10,7 +11,10 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".element")
       .cloneNode(true);
-    return cardElement;
+      this._cardElementImage = cardElement.querySelector(".element__image");
+      this._cardElementText = cardElement.querySelector(".element__text");
+      return cardElement; 
+
   }
 
   _toggleLike() {
@@ -24,8 +28,10 @@ export default class Card {
   createCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
-    this._element.querySelector(".element__text").textContent = this._name;
-    this._element.querySelector(".element__image").src = this._link;
+    this._cardElementText.textContent = this._name;
+    this._cardElementImage.src = this._link;
+    this._cardElementImage.alt = 'картинка карточки';
+    this._handleCardClick(this._cardElementImage);
     return this._element;
   }
 

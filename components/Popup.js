@@ -1,35 +1,41 @@
+import { editValid, cardValid } from "../page/index.js"
+import { editFormModalWindow, cardFormModalWindow } from "../utils/constans.js"
 export default class Popup {
     constructor(popupSelector) {
-      this._popupSelector = document.querySelector(popupSelector);
+      this._popup = document.querySelector(popupSelector);
+      this._handleEscClose = this._handleEscClose.bind(this);
     }
   
     open() {
-        this._popupSelector.classList.add("popup_opened");
-        this._popupSelector.addEventListener("click", () => this.closePopupOverlay(this._popupSelector));
-        document.addEventListener("keydown", () => this._handleEscClose(event));
-        this._popupSelector.firstElementChild.addEventListener("click", function () {
-            event.stopPropagation();
-        });
-        this.setEventListeners();
+        this._popup.classList.add("popup_opened");
+        if (this._popup === editFormModalWindow){ 
+            editValid.enableValidation();
+          } else if (this._popup === cardFormModalWindow){
+            cardValid.enableValidation(); 
+          }
     }
 
     close() {
-        this._popupSelector.classList.remove("popup_opened");
-        this._popupSelector.removeEventListener("click", () => this.closePopupOverlay(this._popupSelector));
-        document.removeEventListener("keydown", () => this._handleEscClose(event));
+        this._popup.classList.remove("popup_opened");
+        document.removeEventListener("keydown", this._handleEscClose);
     }
   
-    closePopupOverlay(item) {
-        item.classList.remove("popup_opened");
-      }
+    closePopupOverlay() {
+        this._popup.classList.remove("popup_opened");
+    }
      
-    _handleEscClose(event) {
-        if (event.key === "Escape") {
+    _handleEscClose(evt) {
+        if (evt.key == "Escape") {
             this.close();
         }
     }
     
-    setEventListeners() {
-        this._popupSelector.querySelector(".popup__cross-button").addEventListener("click", () => this.close());
+    setEventListeners() {   
+        this._popup.firstElementChild.addEventListener("click", function () {
+            event.stopPropagation();
+        });      
+        this._popup.addEventListener("click", () => this.closePopupOverlay());
+        document.addEventListener("keydown", this._handleEscClose);
+        this._popup.querySelector(".popup__cross-button").addEventListener("click", () => this.close());
     }
 }
