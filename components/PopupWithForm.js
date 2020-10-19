@@ -1,5 +1,3 @@
-import { editFormModalWindow, cardFormModalWindow } from "../utils/constans.js"
-import { obj, editValid, cardValid } from "../page/index.js"
 import Popup from "./Popup.js";
 export default class PopupWithForm extends Popup {
     constructor( { formSubmit }, popupSelector) {
@@ -8,28 +6,18 @@ export default class PopupWithForm extends Popup {
     }
 
     close() {        
-        const inputList = Array.from(this._popup.querySelectorAll(".popup__input"));
-        const buttonElement = this._popup.querySelector(".popup__save-button");
-        buttonElement.classList.remove(`${obj.inactiveButtonClass}`);
-        if (this._popup === editFormModalWindow){ 
-          this.resetValidation(editValid, inputList);
-        } else if (this._popup === cardFormModalWindow){
-          this.resetValidation(cardValid, inputList); 
-        }
-        super.close();
+      this._inputList = Array.from(this._popup.querySelectorAll(".popup__input"));
+      this._buttonElement = this._popup.querySelector(".popup__save-button");
+      this._buttonElement.classList.remove("popup__save-button_inactive");
+      this._inputList.forEach((inputElement) => {
+        this._errorElement = this._popup.querySelector(`#${inputElement.id}-error`);
+        inputElement.classList.remove("popup__input_error");
+        this._errorElement.classList.remove("popup__input-error_active");
+        this._errorElement.textContent = "";
+      })
+      super.close();
     }
       
-    resetValidation (item, inputList) {
-        inputList.forEach((inputElement) => {
-          item._hideInputError(inputElement);
-        })
-    }
-
-    closePopupOverlay() {
-        super.closePopupOverlay();
-        this.close();
-    }
-
     _getInputValues() {
         this._inputList = Array.from(this._popup.querySelectorAll('.popup__input'));
         this._formValues = {};
@@ -42,7 +30,7 @@ export default class PopupWithForm extends Popup {
     setEventListeners() {
         this._popup.addEventListener("submit", () => {
           const values =  this._getInputValues();
-          this._formSubmit(values)
+          this._formSubmit(values);
         });
         super.setEventListeners();
     }

@@ -30,7 +30,7 @@ export default class Card {
     this._setEventListeners();
     this._cardElementText.textContent = this._name;
     this._cardElementImage.src = this._link;
-    this._cardElementImage.alt = 'картинка карточки';
+    this._cardElementImage.alt = 'картинка карточки' + this._name;
     this._handleCardClick(this._cardElementImage);
     return this._element;
   }

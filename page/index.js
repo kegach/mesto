@@ -29,6 +29,9 @@ export const obj = {
 export const editValid = new FormValidator(obj, ".popup_type_edit");
 export const cardValid = new FormValidator(obj, ".popup_type_add");
 
+editValid.enableValidation();
+cardValid.enableValidation();
+
 function makeCard(item) {
   const card = new Card(
     item,
@@ -36,7 +39,6 @@ function makeCard(item) {
       handleCardClick: (element) => {
         element.addEventListener("click", () => {
           imagePopup.open(element);
-          imagePopup.setEventListeners();
         });
       },
     },
@@ -45,6 +47,8 @@ function makeCard(item) {
   const cardElement = card.createCard();
   elements.prepend(cardElement);
 }
+
+
 
 const cardList = new Section(
   {
@@ -68,6 +72,8 @@ const editPopup = new PopupWithForm(
   ".popup_type_edit"
 );
 
+editPopup.setEventListeners();
+
 const addPopup = new PopupWithForm(
   {
     formSubmit: () => {
@@ -82,7 +88,12 @@ const addPopup = new PopupWithForm(
   ".popup_type_add"
 );
 
+addPopup.setEventListeners();
+
 const imagePopup = new PopupWithImage(".popup_type_image");
+
+imagePopup.setEventListeners();
+
 const userInfo = new UserInfo(".profile__author", ".profile__profession");
 
 openEditFormModalWindowButton.addEventListener("click", function () {
@@ -90,12 +101,10 @@ openEditFormModalWindowButton.addEventListener("click", function () {
   editFormModalWindowName.value = data.name;
   editFormModalWindowAbout.value = data.about;
   editPopup.open();
-  editPopup.setEventListeners();
 });
 
 openCardFormModalWindowButton.addEventListener("click", function () {
   addPopup.open();
-  addPopup.setEventListeners();
   cardFormModalWindowNameCard.value = "";
   cardFormModalWindowLink.value = "";
 });
