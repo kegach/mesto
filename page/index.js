@@ -45,7 +45,7 @@ function makeCard(item) {
     ".card"
   );
   const cardElement = card.createCard();
-  elements.prepend(cardElement);
+  cardList.addItem(cardElement);
 }
 
 
