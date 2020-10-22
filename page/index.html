@@ -13,11 +13,11 @@
 
         <main class="content">
             <section class="profile">
-                <img src="../images/image.jpg" class="profile__avatar" alt="аватар">
+               <div class="profile__pencil"><img src="#" class="profile__avatar " alt="аватар"></img></div>
                 <div class="profile__info">
-                    <h1 class="profile__author">Жак-Ив Кусто</h1> 
+                    <h1 class="profile__author"></h1> 
                     <button type="button" class="profile__edit-button profile__edit-button_image"></button>
-                    <p class="profile__profession">Исследователь океана</p>
+                    <p class="profile__profession"></p>
                 </div>                
                 <button type="button" class="profile__add-button profile__add-button_image"></button>
             </section>
@@ -67,14 +67,33 @@
                 </div>
             </div>  
         </div>    
+        <div class="popup popup_type_submit" id="submit">
+            <div class="popup__content popup__content_submit"> 
+                <button type="button" class="popup__cross-button popup__cross-button_image"></button>
+                <form class="popup__container popup__container_submit">
+                    <h3 class="popup__title">Вы уверены?</h3>
+                    <button type="submit" name="save" class="popup__save-button">Да</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_avatar" id="avatar">
+            <div class="popup__content"> 
+                <button type="button" class="popup__cross-button popup__cross-button_image"></button>
+                <form class="popup__container">
+                    <h3 class="popup__title">Обновить аватар</h3>
+                    <input type="url" id="input-link" required class="popup__input" placeholder="Ссылка на картинку">
+                    <span class='popup__input-error' id='input-link-error'></span>
+                    <button type="submit" name="save" class="popup__save-button">Сохранить</button>
+                </form>
+            </div>
+        </div>   
     
     <template class="card" id="temp"> 
         <li class="element">
-            <button type="button" class="element__delete element__delete_image"></button>
             <img src="#" class="element__image" alt="Ваша картинка">
             <div class="element__title">
                 <h3 class="element__text"></h3>
-                <button type="button" class="element__group element__like element__like_white"></button>
+                <button type="button" class="element__group element__like element__like_white"><div class="element__number">1</div></button>
             </div> 
         </li>
     </template>    

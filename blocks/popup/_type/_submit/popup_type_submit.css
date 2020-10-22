@@ -1,0 +1,6 @@
+.popup_type_submit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

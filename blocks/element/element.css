@@ -3,6 +3,7 @@
 @import url(./__text/element__text.css);
 @import url(./__group/element__group.css);
 @import url(./__like/element__like.css);
+@import url(./__number/element__number.css);
 @import url(./__like/_white/element__like_white.css);
 @import url(./__like/_black/element__like_black.css);
 @import url(./__delete/element__delete.css);

@@ -1,0 +1,11 @@
+.popup__content_submit{
+    width: 471px;
+    height: 212px;
+}
+
+@media (min-width : 320px) and (max-width : 869px) {
+    .popup__content_submit{
+        width: 240px;
+        height: 212px;
+    }
+}

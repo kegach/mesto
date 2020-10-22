@@ -1,0 +1,10 @@
+.profile__pencil{
+    background-image: url('../../../images/pencil.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.profile__pencil:hover{
+    z-index: 10;
+}

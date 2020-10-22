@@ -1,5 +1,7 @@
 @import url(./__content/popup__content.css);
+@import url(./__content/_submit/popup__content_submit.css);
 @import url(./__container/popup__container.css);
+@import url(./__container/_submit/popup__container_submit.css);
 @import url(./__title/popup__title.css);
 @import url(./__input/popup__input.css);
 @import url(./__input/_error/popup__input_error.css);
@@ -16,6 +18,8 @@
 @import url(./_type/_add/popup_type_add.css);
 @import url(./_type/_edit/popup_type_edit.css);
 @import url(./_type/_image/popup_type_image.css);
+@import url(./_type/_submit/popup_type_submit.css);
+@import url(./_type/_avatar/popup_type_avatar.css);
 
 
 .popup{

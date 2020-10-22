@@ -71,6 +71,7 @@ export const initialCards = [
   
   export const title = document.querySelector(".profile__author");
   export const subtitle = document.querySelector(".profile__profession");
+  export const avatar = document.querySelector('.profile__avatar');
   
   export const popupImage = imageModalWindow.querySelector(".popup__image");
   export const popupTitleImage = imageModalWindow.querySelector(".popup__title-image");

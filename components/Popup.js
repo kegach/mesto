@@ -19,6 +19,10 @@ export default class Popup {
             this.close();
         }
     }
+
+    confirmDelete() {
+
+    }
     
     setEventListeners() {   
         this._popup.firstElementChild.addEventListener("click", function () {
