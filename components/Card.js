@@ -22,13 +22,13 @@ export default class Card {
       this._cardElementLike = this._cardElement.querySelector(".element__like");
       return this._cardElement; 
   }
+  
+  _toggleDelete() { 
+    this.closest(".element").remove(); 
+  } 
 
   _toggleLike() {
     this._cardElementLike.classList.toggle("element__like_black");
-  }
-
-  _toggleDelete() {
-    this.closest(".element").remove();
   }
 
   createCard() {
@@ -46,7 +46,7 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._cardElementLike.addEventListener("click", () => {this._toggleLike(),this._handleLikeClick(this._cardElement)});
+    this._cardElementLike.addEventListener("click", () => { this._handleLikeClick(this._cardElement)});
     if (this._me === true) {
       this._deleteButton = this._cardElement.querySelector(".element__delete")
       this._deleteButton.addEventListener("click", () => { this._handleDeleteClick(this._cardElement)});

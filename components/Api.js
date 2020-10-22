@@ -16,9 +16,6 @@ export default class Api{
             }
             return Promise.reject(`Ошибка: ${res.status}`);
         })
-        .then((res) => {
-            return res;
-        }); 
         }
 
     addCard(data) {
@@ -41,7 +38,7 @@ export default class Api{
         })       
         .then((result) => {
             console.log(result);
-            return result._id;
+            
         }); 
     }
 
@@ -80,9 +77,6 @@ export default class Api{
         }
         return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {
-        return res;
-    }); 
     }
 
     editUserInfo(data) {

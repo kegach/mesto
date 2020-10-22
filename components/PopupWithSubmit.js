@@ -7,12 +7,12 @@ export default class PopupWithSubmit extends Popup {
 
     open(data, card){
       this._data = data;
-      this._card = card
+      //this._card = card
       super.open();
     }
     
     close(){
-      this.card.remove;
+      //this.card.remove;
       super.close();
     }
 

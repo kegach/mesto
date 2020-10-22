@@ -15,17 +15,15 @@ export default class Popup {
     }
      
     _handleEscClose(evt) {
-        if (evt.key == "Escape") {
+        if (evt.key === "Escape") {
             this.close();
         }
     }
-
-    confirmDelete() {
-
-    }
     
     setEventListeners() {   
-        this._popup.firstElementChild.addEventListener("click", function () {
+        //console.log(this._popup.querySelector(".popup__container"));
+        this._popup.firstElementChild.addEventListener("click", function () { 
+        //this._popup.querySelector(".popup__container").addEventListener("click", function () {
             event.stopPropagation();
         });      
         this._popup.addEventListener("click", () => this.close());

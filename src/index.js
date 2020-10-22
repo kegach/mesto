@@ -8,8 +8,6 @@ import {
   cardFormModalWindowNameCard,
   cardFormModalWindowLink,
   elements,
-  title,
-  subtitle,
   avatar,
 } from "../utils/constans.js";
 
@@ -50,13 +48,32 @@ function makeCard(item) {
           imagePopup.open(element);
         });
       }, 
-      handleLikeClick: (element) => {   
-          api.getLike(item);
-          element.querySelector(".element__number").textContent = item.like.length + 1;
-          element.querySelector(".element__like").addEventListener('click', () => {
-            api.deleteLike(item);
-            element.querySelector(".element__number").textContent = item.like.length;
-        })
+      handleLikeClick: (element) => {         
+          const elementLike = element.querySelector(".element__like");
+          const elementNumber = element.querySelector(".element__number");
+          elementLike.classList.toggle("element__like_black");
+          elementLike.addEventListener('click', () => {
+            if(elementLike.classList.contains("element__like_black")) {
+              api.getLike(item)
+              .then((item) => {
+                console.log(item);
+                elementNumber.textContent = item.like.length + 1;
+              })
+              .catch((err) => {
+                console.log(`Ошибка: ${err}`);
+              })
+            }
+            else {
+              api.deleteLike(item)
+              .then((item) => {
+                elementNumber.textContent = item.like.length;
+              })
+              .catch((err) => {
+                console.log(`Ошибка: ${err}`);
+              }) 
+            }
+        });
+
       },
       handleDeleteClick: (card) => {
         deletePopup.open(item, card);
@@ -65,18 +82,23 @@ function makeCard(item) {
     ".card"
   );
   const cardElement = card.createCard();
-  elements.prepend(cardElement);
+  return cardElement;
 }
 
 const editPopup = new PopupWithForm(
   {
     formSubmit: (values) => {
-      api.editUserInfo(values)
+      api.editUserInfo(values)      
+      .then((values) => {
+        userInfo.setUserInfo(values);
+        editPopup.close();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
       .finally(() => {
         renderLoading(".popup_type_edit", true);
       });
-      userInfo.setUserInfo(values);
-      editPopup.close();
     },
   },
   ".popup_type_edit"
@@ -84,12 +106,32 @@ const editPopup = new PopupWithForm(
 
 editPopup.setEventListeners();
 
+
 const addPopup = new PopupWithForm(
   {
     formSubmit: (values) => {
       api.addCard(values)
-      then((res) => {
-        item.id = res;
+      .then((values) => {
+        console.log(values);
+        item.id = values._id;
+        const item = {
+          name: cardFormModalWindowNameCard.value, 
+          src: cardFormModalWindowLink.value,
+          like: [],
+          me: true,
+        }
+        console.log(item);
+        const newCard = new Section(
+          {
+            data: item,
+            renderer: (it) => {
+              newCard.addItemStart(makeCard(it));
+            },
+          },
+          elements
+        );
+        newCard.renderItems();
+        addPopup.close();
       })
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
@@ -97,15 +139,7 @@ const addPopup = new PopupWithForm(
       .finally(() => {
         renderLoading(".popup_type_add", true);
       });
-      const item = {
-        name: cardFormModalWindowNameCard.value, 
-        src: cardFormModalWindowLink.value,
-        like: [],
-        me: true,
-      }
-      console.log(item);
-      makeCard(item);
-      addPopup.close();
+
     },
   },
   ".popup_type_add"
@@ -130,11 +164,17 @@ const avatarPopup = new PopupWithForm(
     formSubmit: (data) => {
       console.log(data);
       api.editAvatar(data)
+      .then((data) => {
+        avatar.src = data[0];
+        avatarPopup.close();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
       .finally(() => {
         renderLoading(".popup_type_avatar", true);
       });
-      avatar.src = data[0];
-      avatarPopup.close();
+
     },
   },
   ".popup_type_avatar"
@@ -154,16 +194,21 @@ openEditFormModalWindowButton.addEventListener("click", function () {
 });
 
 openCardFormModalWindowButton.addEventListener("click", function () {
-  addPopup.open();
   cardFormModalWindowNameCard.value = "";
-  cardFormModalWindowLink.value = "";
+  cardFormModalWindowLink.value = ""; 
+  addPopup.open();
 });
 
 const deletePopup = new PopupWithSubmit(
   {
     formSubmit: (data) => {
-      api.deleteCard(data);
-      deletePopup.close();
+      api.deleteCard(data)      
+      .then(() => {
+        deletePopup.close();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
     },
   },
   ".popup_type_submit"
@@ -171,11 +216,17 @@ const deletePopup = new PopupWithSubmit(
 
 deletePopup.setEventListeners();
 
+Promise.all([api.getUserInfo(), api.getCards()])
+  .then(([userInfo, cards]) => {
+    setUserInfo(userInfo);
+    addCards(cards, userInfo.id);
+  })
+  .catch(error => console.log(error)); 
+
+
 api.getUserInfo()
 .then((res) => {
-  title.textContent = res.name;
-  subtitle.textContent = res.about;
-  avatar.src = res.avatar;
+  userInfo.setData(res); 
 })
 .catch((err) => {
   console.log(`Ошибка: ${err}`);
@@ -196,7 +247,7 @@ const newCards = function (res) {
   {
     data: cards,
     renderer: (item) => {
-      makeCard(item);
+      cardList.addItem(makeCard(item));
     },
   },
   elements
