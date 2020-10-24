@@ -15,19 +15,17 @@ export default class FormValidator {
   }
 
   _showInputError(inputElement) {
+    const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(`${this._inputErrorClass}`);
-    this._form.querySelector(`#${inputElement.id}-error`).textContent =
-      inputElement.validationMessage;
-    this._form
-      .querySelector(`#${inputElement.id}-error`)
-      .classList.add(`${this._errorClass}`);
+    errorElement.textContent = inputElement.validationMessage;
+    errorElement.classList.add(`${this._errorClass}`);
   }
 
   _hideInputError(inputElement) {
-    this.errorElement = this._form.querySelector(`#${inputElement.id}-error`);
+    const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(`${this._inputErrorClass}`);
-    this.errorElement.classList.remove(`${this._errorClass}`);
-    this.errorElement.textContent = "";
+    errorElement.classList.remove(`${this._errorClass}`);
+    errorElement.textContent = "";
   }
 
   _checkInputValidity(inputElement) {

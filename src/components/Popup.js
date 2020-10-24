@@ -2,6 +2,7 @@ export default class Popup {
     constructor(popupSelector) {
       this._popup = document.querySelector(popupSelector);
       this._handleEscClose = this._handleEscClose.bind(this);
+      this._handleClickClose = this._handleClickClose.bind(this);
     }
   
     open() {
@@ -19,14 +20,15 @@ export default class Popup {
             this.close();
         }
     }
+
+    _handleClickClose(evt) {
+        if (evt.target === evt.currentTarget) {
+            this.close();
+        }
+      }
     
     setEventListeners() {   
-        //console.log(this._popup.querySelector(".popup__container"));
-        this._popup.firstElementChild.addEventListener("click", function () { 
-        //this._popup.querySelector(".popup__container").addEventListener("click", function () {
-            event.stopPropagation();
-        });      
-        this._popup.addEventListener("click", () => this.close());
-        this._popup.querySelector(".popup__cross-button").addEventListener("click", () => this.close());
+        this._popup.querySelector(".popup__cross-button").addEventListener("click", () => this.close()); 
+        this._popup.addEventListener("click", this._handleClickClose);
     }
-}
+} 
