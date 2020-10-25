@@ -1,21 +1,21 @@
-@import url(../styles/normalize.css);
-@import url(../blocks/body/body.css);
-@import url(../blocks/header/header.css);
-@import url(../blocks/page/page.css);
-@import url(../blocks/profile/profile.css);
-@import url(../blocks/elements/elements.css);
-@import url(../blocks/element/element.css);
-@import url(../blocks/footer/footer.css);
-@import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(./styles/normalize.css);
+@import url(./blocks/body/body.css);
+@import url(./blocks/header/header.css);
+@import url(./blocks/page/page.css);
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/element/element.css);
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
 
 @font-face {
     font-family: 'Inter';
     font-style:  normal;
     font-weight: 400;
     font-display: swap;
-    src: url(../fonts/Inter/Inter-Regular.woff2) format("woff2"),
-         url(../fonts/Inter/Inter-Regular.woff) format("woff");
+    src: url(./fonts/Inter/Inter-Regular.woff2) format("woff2"),
+         url(./fonts/Inter/Inter-Regular.woff) format("woff");
   }
 
 @font-face {
@@ -23,8 +23,8 @@
     font-style:  normal;
     font-weight: 500;
     font-display: swap;
-    src: url(../fonts/Inter/Inter-Medium.woff2) format("woff2"),
-         url(../fonts/Inter/Inter-Medium.woff) format("woff");
+    src: url(./fonts/Inter/Inter-Medium.woff2) format("woff2"),
+         url(./fonts/Inter/Inter-Medium.woff) format("woff");
 }
 
 @font-face {
@@ -32,6 +32,6 @@
     font-style:  normal;
     font-weight: 900;
     font-display: swap;
-    src: url(../fonts/Inter/Inter-Black.woff2) format("woff2"),
-         url(../fonts/Inter/Inter-Black.woff) format("woff");
+    src: url(./fonts/Inter/Inter-Black.woff2) format("woff2"),
+         url(./fonts/Inter/Inter-Black.woff) format("woff");
 }
